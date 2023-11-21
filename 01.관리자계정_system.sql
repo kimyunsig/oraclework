@@ -41,6 +41,9 @@ alter user user7 quota 30M on users;
 -- [표현법] drop user 사용자명 cascade; => 테이블이 있을 때
 drop user c##user1;
 
-
-
+--DDL계정만들기
+ALTER SESSION set "_oracle_script" = true;
+create user ddl identified by ddl;
+grant RESOURCE, CONNECT to ddl;
+alter user ddl default TABLESPACE users quota UNLIMITED on users;
 
